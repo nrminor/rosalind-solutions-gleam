@@ -1,13 +1,22 @@
+//// Problem
+//// a string is simply an ordered collection of symbols selected from some alphabet and formed into a word; the length of a string is the number of symbols that it contains.
 ////
+//// an example of a length 21 dna string (whose alphabet contains the symbols 'a', 'c', 'g', and 't') is "atgcttcagaaaggtcttacg."
+////
+//// given: a dna string s of length at most 1000 nt.
+////
+//// return: four integers (separated by spaces) counting the respective number of times that the symbols 'a', 'c', 'g', and 't' occur in s.
 
 import utils
 
-///
+/// `NucleotideCounts` stores integer counts for each supported kind of nucleotide in
+/// the provided string of nucleotides.
 pub type NucleotideCounts {
   NucleotideCounts(a: Int, t: Int, g: Int, c: Int, u: Int, n: Int)
 }
 
-///
+/// `count_bases` iterates recursively through a string of parsed base values and
+/// uses Gleam update syntax to increment up counts of each supported base.
 pub fn count_bases(sequence: List(utils.Base), counts: NucleotideCounts) {
   case sequence {
     [] -> counts
